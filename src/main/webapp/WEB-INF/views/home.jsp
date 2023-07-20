@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">댕청Shop</a>
+        <a class="navbar-brand" href="/">하루과일</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/write">상품등록</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/question">상품문의</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -30,74 +34,22 @@
 <div class="container mt-3">
     <table class="table">
         <thead>
-            <tr>
-                <th>상품번호</th>
-                <th>상품명</th>
-                <th>상품가격</th>
-                <th>상품재고</th>
-            </tr>
+        <tr>
+            <th>상품번호</th>
+            <th>상품명</th>
+            <th>상품가격</th>
+            <th>상품재고</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>바나나</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
+        <c:forEach var="p" items="${productList}">
             <tr class="table-primary">
-                <td>2</td>
-                <td>사과</td>
-                <td>1500원</td>
-                <td>10개</td>
+                <td>${p.id}</td>
+                <td><a href="/product/${p.id}">${p.name}</a></td>
+                <td>${p.price}</td>
+                <td>${p.qty}</td>
             </tr>
-            <tr class="table-success">
-                <td>3</td>
-                <td>참외</td>
-                <td>2000원</td>
-                <td>15개</td>
-            </tr>
-            <tr class="table-danger">
-                <td>4</td>
-                <td>수박</td>
-                <td>3000원</td>
-                <td>5개</td>
-            </tr>
-            <tr class="table-info">
-                <td>5</td>
-                <td>포도</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
-            <tr class="table-warning">
-                <td>1</td>
-                <td>바나나</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
-            <tr class="table-active">
-                <td>1</td>
-                <td>바나나</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
-            <tr class="table-secondary">
-                <td>1</td>
-                <td>바나나</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
-            <tr class="table-light">
-                <td>1</td>
-                <td>바나나</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
-            <tr class="table-dark">
-                <td>1</td>
-                <td>바나나</td>
-                <td>1000원</td>
-                <td>50개</td>
-            </tr>
+        </c:forEach>
         </tbody>
     </table>
 
