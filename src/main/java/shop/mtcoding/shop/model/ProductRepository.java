@@ -94,7 +94,7 @@ public class ProductRepository { //DAO와 다르게 범용적인 저장소로 �
         Product product=(Product) query.getSingleResult();
         return product;
     }
-
+    git push origin main
 
 
 //    public Product findById2(int id) {
